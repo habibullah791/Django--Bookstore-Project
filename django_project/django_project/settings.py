@@ -38,7 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "accounts.apps.AccountsConfig", #new
+    "pages.apps.PagesConfig", # new
 ]
+
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
@@ -65,6 +67,7 @@ TEMPLATES = [
                 "django.contrib.messages.context_processors.messages",
             ],
         },
+        "DIRS": [BASE_DIR / "templates"]  #new
     },
 ]
 

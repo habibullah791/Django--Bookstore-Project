@@ -24,10 +24,10 @@
             <div class="user-actions">
                 {% if user.is_authenticated %}
                 <p>Hi {{ user.email }}!</p>
-                <p><a href="{% url 'logout' %}">Log Out</a></p>
+                <p><a href="{% url 'account_logout' %}">Log Out</a></p>
                 {% else %}
-                <a href="{% url 'login' %}" class="btn">Log In</a>
-                <a href="{% url 'signup' %}" class="btn">Sign Up</a>
+                <a href="{% url 'account_login' %}" class="btn">Log In</a>
+                <a href="{% url 'account_signup' %}" class="btn">Sign Up</a>
                 {% endif %}
             </div>
         </nav>

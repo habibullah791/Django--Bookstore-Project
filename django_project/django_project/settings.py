@@ -147,7 +147,9 @@ AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
 )
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend" # new
+
 ACCOUNT_SESSION_REMEMBER = True  # new
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False  # new
 ACCOUNT_USERNAME_REQUIRED = False  # new
@@ -160,3 +162,5 @@ DEBUG = False  # new
 ALLOWED_HOSTS = [".herokuapp.com", "localhost", "127.0.0.1"]  # new
 
 DEBUG = env.bool("DJANGO_DEBUG")  # new
+
+DEFAULT_FROM_EMAIL = "admin@djangobookstore.com" # new

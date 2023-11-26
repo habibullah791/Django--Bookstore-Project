@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock title %}
+
+{% block content %}
+<!-- about section -->
+
+<section class="about_section layout_padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-box">
+                    <img src="{% static 'images/about-img.png' %}" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <div class="heading_container">
+                        <h2>
+                            About Our Bookstore
+                        </h2>
+                    </div>
+                    <p>
+                        Welcome to <strong>InkWellReads</strong> , a haven for avid readers and coding enthusiasts
+                        alike! Immerse
+                        yourself in a world where the pages come alive with knowledge and creativity. Our carefully
+                        curated collection boasts an extensive range of books dedicated to coding and programming,
+                        making it a paradise for anyone eager to delve into the world of technology and software
+                        development.
+                    </p>
+                    <p>
+                        Step into our store, and you'll discover a rich assortment of titles that cater to enthusiasts
+                        at every skill level, from beginners taking their first steps in coding to seasoned
+                        professionals seeking advanced insights. Our shelves are adorned with works authored by industry
+                        experts, covering a spectrum of programming languages, development methodologies, and
+                        cutting-edge technologies. Whether you're passionate about web development, data science,
+                        artificial intelligence, or cybersecurity, we have the perfect book to fuel your intellectual
+                        curiosity and sharpen your coding prowess.
+                    </p>
+                    <p>
+                        At our book store, we strive to create a vibrant community of learners and thinkers. Engage in
+                        conversations with fellow coding enthusiasts, attend book clubs, and participate in events that
+                        celebrate the ever-evolving landscape of technology. Imbibe the spirit of innovation and
+                        continuous learning as you explore our carefully curated selection. Join us on a journey where
+                        each book is a gateway to unlocking new possibilities and where the love for coding is nurtured
+                        on every page.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end about section -->
+
+<!-- info section -->
+
+<section class="info_section layout_padding2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-3 info-col">
+                <div class="info_detail">
+                    <h4>
+                        About Us
+                    </h4>
+                    <p>
+                        Vitae aut explicabo fugit facere alias distinctio, exem commodi mollitia minusem dignissimos
+                        atque asperiores incidunt vel voluptate iste
+                    </p>
+                    <div class="info_social">
+                        <a href="">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 info-col">
+                <div class="info_contact">
+                    <h4>
+                        Address
+                    </h4>
+                    <div class="contact_link_box">
+                        <a href="">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>
+                                Location
+                            </span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span>
+                                Call +01 1234567890
+                            </span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span>
+                                demo@gmail.com
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 info-col">
+                <div class="info_contact">
+                    <h4>
+                        Newsletter
+                    </h4>
+                    <form action="#">
+                        <input type="text" placeholder="Enter email" />
+                        <button type="submit">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 info-col">
+                <div class="map_container">
+                    <div class="map">
+                        <div id="googleMap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- end info section -->
+
+<!-- footer section -->
+<footer class="footer_section">
+    <div class="container">
+        <p>
+            &copy; <span id="displayYear"></span> All Rights Reserved By
+            <a href="https://html.design/">Free Html Templates</a>
+        </p>
+    </div>
+</footer>
+{% endblock content %}

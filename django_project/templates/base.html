@@ -5,47 +5,73 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Bookstore{% endblock %}</title>
-    <!-- CSS -->
-    <link rel="stylesheet" href="{% static 'css/base.css' %}">
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>{% block title %}InkWellReads{% endblock %}</title>
 
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}" />
+    <!-- font awesome style -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet" />
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet" />
+    <!-- responsive style -->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet" />
 </head>
 
 <body>
-    <div class="container">
-        <nav class="navbar">
-            <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a class="nav-link" href="{% url 'book_list' %}">Books</a>
-                </li>
-                <!-- Add more navbar items as needed -->
-            </ul>
-            <div class="user-actions">
-                {% if user.is_authenticated %}
-                <p>Hi {{ user.email }}!</p>
-                <p><a href="{% url 'account_logout' %}">Log Out</a></p>
-                {% else %}
-                <a href="{% url 'account_login' %}" class="btn">Log In</a>
-                <a href="{% url 'account_signup' %}" class="btn">Sign Up</a>
-                {% endif %}
-                </ul>
-                <form class="d-flex" action="{% url 'search_result' %}" method="get">
-                    <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-\ label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
+    <div class="hero_area">
+        <header class="header_section">
+            <div class="container-fluid">
+                <nav class="navbar navbar-expand-lg custom_nav-container">
+                    <div class="navbar-brand-center">
+                        <a class="navbar-brand" href="{% url 'home' %}">
+                            <span>
+                                InkWellReads
+                            </span>
+                        </a>
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class=""> </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link pl-lg-0" href="{% url 'home' %}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'book_list' %}">Books</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'about' %}">About</a>
+                            </li>
+                        </ul>
+                        <div class="d-flex align-items-center">
+                            <form class="search_form mr-3" action="{% url 'search_result' %}" method="get">
+                                <input type="text" class="form-control" name="q" placeholder="Search here...">
+                                <button class="" type="submit">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </button>
+                            </form>
+                            {% if user.is_authenticated %}
+                            <a class="header-btn" href="{% url 'account_logout' %}">Logout</a>
+                            {% else %}
+                            <a class="header-btn mr-2" href="{% url 'account_login' %}">Login</a>
+                            <a class="header-btn" href="{% url 'account_signup' %}">Signup</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </nav>
             </div>
-    </div>
-    </nav>
+        </header>
 
+        {% block content %}
+        {% endblock content %}
     </div>
-    </nav>
 
-    {% block content %}
-    {% endblock content %}
-    </div>
     <script src="{% static 'js/base.js' %}"></script>
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -54,6 +80,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
         integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
         crossorigin="anonymous"></script>
+
+    <!-- jQery -->
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <!-- bootstrap js -->
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <!-- custom js -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <!-- Google Map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCh39n5U-4IoWpsVGUHWdqB6puEkhRLdmI&callback=myMap">
+    </script>
+    <!-- End Google Map -->
+    </div>
 </body>
 
 </html>

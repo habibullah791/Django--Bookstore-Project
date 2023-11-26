@@ -1,11 +1,55 @@
 {% extends "base.html" %}
 
-
 {% block title %}Books{% endblock title %}
+
 {% block content %}
-{% for book in book_list %}
-<div>
-    <h2><a href="{% url 'book_detail' book.pk %}">{{ book.title }}</a></h2>
+<style>
+    .card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .card-title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin-bottom: 0;
+    }
+</style>
+
+<div class="container mt-5 mb-5">
+    <h2 class="mb-4">Explore Our Collection</h2>
+    <div class="row">
+        {% for book in book_list %}
+        <div class="col col-4 mb-5">
+            <div class="card shadow-sm">
+                <img class="bd-placeholder-img card-img-top" width="300" height="400" src="{{ book.cover.url }}"
+                    alt="{{ book.title }}">
+                <div class="card-body">
+                    <div class="d-flex flex-column align-items-start">
+                        <h5 class="card-title mr-3"> {{ book.title }} </h5>
+                    </div>
+                    <div class="btn-group d-flex flex-direction-row justify-content-between mt-2">
+                        <div class="d-flex flex-row">
+                            <span>by - </span>
+                            <p class="card-text ml-1 text-muted"> {{ book.author }} </p>
+                        </div>
+                        <!-- The "Details" button in the top-right corner -->
+                        <div class="ml-5">
+                            <a href="{% url 'book_detail' book.pk %}"> Read More </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 </div>
-{% endfor %}
 {% endblock content %}

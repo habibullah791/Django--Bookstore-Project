@@ -1,13 +1,36 @@
 {% extends "base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 
-
-{% block title %}Sign Up{% endblock title %}
 {% block content %}
-<h2>Sign Up - Create New Account</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit">Sign Up</button>
-</form>
+<div class="container">
+    <div class="row login-row justify-content-center">
+        <div class="col-md-7 login-img-section mx-auto">
+            <section class="layout_padding_login">
+                <div class="login-detail-box">
+                    <h2>
+                        SignUp to InkWellReads
+                    </h2>
+                    <p>
+                        At cumque tenetur iste molestiae, vel eum reiciendis assumenda! Numquam, repudiandae.
+                        Consequuntur obcaecati
+                    </p>
+                </div>
+                <div class="login-img-box">
+                    <img src="{% static 'images/about-img.png' %}" alt="About Image">
+                </div>
+            </section>
+        </div>
+        <div class="col-md-5 login-container">
+            <div class="login-form login-form-section">
+                <h2 class="mb-3">InkWellReads</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock content %}

@@ -31,11 +31,20 @@
                 <a href="{% url 'account_login' %}" class="btn">Log In</a>
                 <a href="{% url 'account_signup' %}" class="btn">Sign Up</a>
                 {% endif %}
+                </ul>
+                <form class="d-flex" action="{% url 'search_result' %}" method="get">
+                    <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-\ label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
             </div>
-        </nav>
+    </div>
+    </nav>
 
-        {% block content %}
-        {% endblock content %}
+    </div>
+    </nav>
+
+    {% block content %}
+    {% endblock content %}
     </div>
     <script src="{% static 'js/base.js' %}"></script>
     <!-- Bootstrap -->
